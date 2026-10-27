@@ -1,0 +1,193 @@
+/* =============================================================================
+   QBM PROTOTYPE — DESIGN TOKENS  (single source of truth)
+   Source: "QuickBooks Mobile Design System V2" (Figma file Bk8L0MiwkVLHizAaBWDk2e)
+     • Mobile Color Tokens      — LIGHT mode only (dark mode intentionally omitted)
+     • Mobile Type Tokens
+     • Mobile Dimension Tokens
+   Token names mirror the Figma variable names: `color/text/primary` becomes
+   `--color-text-primary`. Screens and components must use these variables only;
+   never hardcode hex, px font sizes, or ad-hoc shadows.
+
+   GAPS vs. the design system (see README → "Known gaps"):
+     • Tally VF / Tally Display VF variable fonts are not bundled. Static Tally
+       Regular (400) and Medium (600) are used instead.
+     • Shadow "Level 2" is a Figma effect style, copied below as --shadow-level-2.
+   ============================================================================= */
+
+:root{
+  /* ---- COLOR : page ---------------------------------------------------------- */
+  --color-page-background-primary:#ffffff;
+  --color-page-background-secondary:#f6f9fc;
+  --color-page-background-tertiary:#eef3f8;
+  --color-page-background-overlay:rgba(0,29,83,.10);
+
+  /* ---- COLOR : container ----------------------------------------------------- */
+  --color-container-background-primary:#ffffff;
+  --color-container-background-secondary:#fafcfd;
+  --color-container-background-tertiary:#f6f9fc;
+  --color-container-background-inverse:#050c13;
+  --color-container-background-brand:#deedfe;
+  --color-container-border-primary:#e7edf3;
+  --color-container-border-secondary:#dfe6ed;
+
+  /* ---- COLOR : text & icon --------------------------------------------------- */
+  --color-text-primary:#050c13;
+  --color-text-secondary:#333d46;
+  --color-text-tertiary:#67737f;
+  --color-text-placeholder:#96a3af;
+  --color-text-disabled:#adb9c4;
+  --color-text-inverse:#ffffff;
+  --color-text-action:#0566ff;
+  --color-text-negative:#e2011c;
+  --color-icon-primary:#050c13;
+  --color-icon-secondary:#4e5964;
+  --color-icon-disabled:#adb9c4;
+  --color-icon-inverse:#ffffff;
+  --color-icon-action:#0566ff;
+  --color-icon-negative:#e2011c;
+
+  /* ---- COLOR : dividers ------------------------------------------------------ */
+  --color-divider-primary:rgba(115,150,185,.20);   /* #7396b933 */
+  --color-divider-secondary:rgba(98,128,162,.30);  /* #6280a24d */
+  --color-divider-tertiary:#96a3af;
+
+  /* ---- COLOR : actions ------------------------------------------------------- */
+  --color-action-primary-background:#001d53;
+  --color-action-primary-content:#ffffff;
+  --color-action-primary-border:rgba(98,128,162,.30);
+  --color-action-primary-overlay-active:rgba(0,0,0,.12);
+  --color-action-secondary-background:#ffffff;
+  --color-action-secondary-content:#050c13;
+  --color-action-secondary-border:rgba(98,128,162,.30);
+  --color-action-secondary-overlay-active:rgba(122,162,195,.15);
+  --color-action-tertiary-background:rgba(125,165,205,.10);
+  --color-action-tertiary-content:#050c13;
+  --color-action-tertiary-overlay-active:rgba(125,165,205,.10);
+  --color-action-quaternary-content:#050c13;
+  --color-action-quaternary-overlay-active:rgba(122,162,195,.15);
+  --color-action-plain-content:#0566ff;
+  --color-action-destructive-primary-background:#e2011c;
+  --color-action-destructive-primary-content:#ffffff;
+  --color-action-destructive-secondary-content:#e2011c;
+  --color-focus-border:#0566ff;
+
+  /* ---- COLOR : feedback ------------------------------------------------------ */
+  --color-feedback-positive-bold-background:#018436;
+  --color-feedback-positive-bold-content:#ffffff;
+  --color-feedback-positive-subtle-background:#c4fac8;
+  --color-feedback-positive-subtle-content:#01662b;
+  --color-feedback-negative-bold-background:#e2011c;
+  --color-feedback-negative-bold-content:#ffffff;
+  --color-feedback-negative-subtle-background:#ffe5e6;
+  --color-feedback-negative-subtle-content:#ae1216;
+  --color-feedback-warning-bold-background:#ff9b58;
+  --color-feedback-warning-bold-content:#1a0700;
+  --color-feedback-warning-subtle-background:#fee6d8;
+  --color-feedback-warning-subtle-content:#8e4101;
+  --color-feedback-info-bold-background:#0566ff;
+  --color-feedback-info-bold-content:#ffffff;
+  --color-feedback-info-subtle-background:#deedfe;
+  --color-feedback-info-subtle-content:#034cd1;
+
+  /* ---- COLOR : AI action ----------------------------------------------------- */
+  --color-action-ai-primary-background:#f0f7ff;
+  --color-action-ai-primary-content:#0566ff;
+
+  /* ---- TYPOGRAPHY ------------------------------------------------------------ */
+  /* DS uses Tally VF (body) and Tally Display VF (heading). Only static Tally
+     Regular/Medium ship in this repo, so both map to 'Tally'. */
+  --font-name-body:'Tally',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-name-heading:'Tally',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-weight-regular:400;    /* DS 420 */
+  --font-weight-semibold:600;   /* DS 480 — heaviest static cut available */
+  --font-weight-bold:600;       /* DS 600 */
+
+  --font-size-heading-3:36px;   --line-height-heading-3:40px;
+  --font-size-heading-5:24px;   --line-height-heading-5:28px;
+  --font-size-body-large:18px;  --line-height-body-large:28px;
+  --font-size-body-medium:16px; --line-height-body-medium:24px;
+  --font-size-body-small:14px;  --line-height-body-small:20px;
+  --font-size-body-tiny:12px;   --line-height-body-tiny:16px;
+  --tracking-heading:0;
+  --tracking-body:0.04px;
+
+  /* composed text styles  (weight size/line-height family) */
+  --type-heading-3:var(--font-weight-regular) var(--font-size-heading-3)/var(--line-height-heading-3) var(--font-name-heading);
+  --type-heading-3-semibold:var(--font-weight-semibold) var(--font-size-heading-3)/var(--line-height-heading-3) var(--font-name-heading);
+  --type-heading-5:var(--font-weight-regular) var(--font-size-heading-5)/var(--line-height-heading-5) var(--font-name-heading);
+  --type-heading-5-semibold:var(--font-weight-semibold) var(--font-size-heading-5)/var(--line-height-heading-5) var(--font-name-heading);
+  --type-body-large:var(--font-weight-regular) var(--font-size-body-large)/var(--line-height-body-large) var(--font-name-body);
+  --type-body-large-semibold:var(--font-weight-semibold) var(--font-size-body-large)/var(--line-height-body-large) var(--font-name-body);
+  --type-body-medium:var(--font-weight-regular) var(--font-size-body-medium)/var(--line-height-body-medium) var(--font-name-body);
+  --type-body-medium-semibold:var(--font-weight-semibold) var(--font-size-body-medium)/var(--line-height-body-medium) var(--font-name-body);
+  --type-body-small:var(--font-weight-regular) var(--font-size-body-small)/var(--line-height-body-small) var(--font-name-body);
+  --type-body-small-semibold:var(--font-weight-semibold) var(--font-size-body-small)/var(--line-height-body-small) var(--font-name-body);
+  --type-body-tiny:var(--font-weight-regular) var(--font-size-body-tiny)/var(--line-height-body-tiny) var(--font-name-body);
+  --type-body-tiny-semibold:var(--font-weight-semibold) var(--font-size-body-tiny)/var(--line-height-body-tiny) var(--font-name-body);
+
+  /* ---- RADIUS ---------------------------------------------------------------- */
+  --radius-4:4px;
+  --radius-8:8px;
+  --radius-12:12px;
+  --radius-16:16px;
+  --radius-24:24px;
+  --radius-32:32px;
+  --radius-full:999px;
+  --radius-action-tiny:6px;
+  --radius-action-small:6px;
+  --radius-action-medium:8px;
+  --radius-action-large:10px;
+
+  /* ---- SPACING --------------------------------------------------------------- */
+  --space-none:0;
+  --space-2:2px;  --space-4:4px;  --space-6:6px;  --space-8:8px;
+  --space-12:12px; --space-16:16px; --space-20:20px; --space-24:24px;
+  --space-32:32px; --space-40:40px;
+  --space-action-tiny-gap:4px;   --space-action-tiny-horizontal:10px; --space-action-tiny-vertical:4px;
+  --space-action-small-gap:6px;  --space-action-small-vertical:6px;
+  --space-action-medium-gap:6px; --space-action-medium-vertical:6px;
+  --space-action-large-gap:6px;  --space-action-large-vertical:6px;
+
+  /* ---- BORDER WIDTH ---------------------------------------------------------- */
+  --border-width-hairline:0.5px;
+  --border-width-thin:1px;
+  --border-width-medium:2px;
+  --focus-offset:1px;
+
+  /* ---- ELEVATION (Figma effect style "Shadow/Level 2") ----------------------- */
+  --shadow-level-2:0 2px 8px rgba(5,12,19,.08),0 2px 2px rgba(5,12,19,.06);
+
+
+  /* ---- PROTOTYPE-ONLY SURFACES (NOT in the design system — confirm w/ design) --
+     Estimated from the Figma flow frames. Replace with DS tokens when they exist. */
+  --proto-surface-dark:#0d0031;          /* value prop frame fill from Figma (summary screens likely same) */
+  --proto-surface-dark-raised:#221a45;   /* rows on dark surface                       */
+  --proto-surface-dark-content:#ffffff;
+  --proto-surface-dark-content-muted:rgba(255,255,255,.80);
+  --proto-home-header:#00362b;           /* QBO home header (dark green)               */
+  --proto-category-chip-border:rgba(98,128,162,.45);
+  --proto-chart-lavender:#cfc0fb;        /* estimated-expense chart palette (Figma summary + H1 home) */
+  --proto-chart-navy:#003a99;
+  --proto-chart-sky:#c6dcff;
+  --proto-chart-blue:#0066ff;
+
+  /* ---- MOTION (prototype only; not part of the DS file) ---------------------- */
+  --ease-ios:cubic-bezier(.22,1,.36,1);
+  --ease-in-out:cubic-bezier(.4,0,.2,1);
+  --dur-fast:180ms;
+  --dur:320ms;
+  --dur-slow:420ms;
+
+  /* ---- DEVICE METRICS (iPhone 17 / iOS 27) — used by frame.css --------------- */
+  --screen-w:402px;
+  --screen-h:874px;
+  --screen-radius:62px;
+  --bezel:12px;
+  --device-radius:74px;
+  --island-w:125px;
+  --island-h:37px;
+  --statusbar-h:62px;
+  --safe-top:62px;
+  --safe-bottom:34px;
+  --gutter:var(--space-16);   /* screens in the Figma flow use 16px side padding */
+}

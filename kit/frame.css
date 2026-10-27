@@ -1,0 +1,64 @@
+/* =============================================================================
+   DEVICE FRAME — iPhone 17 / iOS 27
+   Hardware bezel, Dynamic Island, display corner radius, status bar, home
+   indicator. Screens mount into #app (see kit.js). Don't edit per-screen.
+   ============================================================================= */
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;height:100%;}
+body{
+  font:var(--type-body-medium);
+  color:var(--color-text-primary);
+  background:var(--color-page-background-tertiary);
+  display:flex;align-items:center;justify-content:center;gap:32px;min-height:100vh;padding:26px;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  letter-spacing:var(--tracking-body);
+}
+.stage{display:flex;flex-direction:column;align-items:center;gap:14px;}
+
+/* ---- hardware ------------------------------------------------------------- */
+.device{
+  position:relative;
+  width:calc(var(--screen-w) + var(--bezel) * 2);
+  height:calc(var(--screen-h) + var(--bezel) * 2);
+  border-radius:var(--device-radius);
+  background:#0a0a0c;padding:var(--bezel);          /* hardware, not UI */
+  box-shadow:var(--shadow-level-2);
+}
+.island{
+  position:absolute;top:13px;left:50%;transform:translateX(-50%);
+  width:var(--island-w);height:var(--island-h);
+  background:#000;border-radius:20px;z-index:60;
+}
+.island::after{
+  content:"";position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  width:9px;height:9px;border-radius:50%;
+  background:#15161a;box-shadow:inset 0 0 0 1.5px #050506;
+}
+.screen{
+  position:relative;width:100%;height:100%;
+  border-radius:var(--screen-radius);overflow:hidden;
+  background:var(--color-page-background-primary);isolation:isolate;
+}
+
+/* ---- app mount ------------------------------------------------------------ */
+.kit-app{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;z-index:1;-webkit-overflow-scrolling:touch;}
+.kit-app::-webkit-scrollbar{display:none;}
+
+/* ---- status bar ----------------------------------------------------------- */
+.statusbar{
+  position:absolute;top:0;left:0;right:0;height:var(--statusbar-h);
+  z-index:50;pointer-events:none;
+}
+.statusbar > svg{display:block;width:100%;height:auto;}
+.statusbar.on-dark svg path,
+.statusbar.on-dark svg rect{fill:#fff;}
+.statusbar.on-dark svg rect[stroke]{stroke:#fff;}
+
+/* ---- home indicator ------------------------------------------------------- */
+.homebar{
+  position:absolute;bottom:7px;left:50%;transform:translateX(-50%);
+  width:130px;height:5px;border-radius:3px;background:rgba(0,0,0,.26);z-index:95;
+  pointer-events:none;
+}
+.screen.dark-bg .homebar{background:rgba(255,255,255,.5);}

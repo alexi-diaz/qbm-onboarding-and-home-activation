@@ -1,0 +1,180 @@
+/* =============================================================================
+   SHARED COMPONENTS — built from "QuickBooks Mobile Design System V2".
+   Tokens only: no hardcoded hex / px type / ad-hoc shadows in this file except
+   where noted "DS GAP" (component missing from the DS or value not tokenised).
+   ============================================================================= */
+
+/* ---- layout scaffold ------------------------------------------------------- */
+.screen-pad{padding:var(--safe-top) var(--gutter) 0;min-height:100%;display:flex;flex-direction:column;}
+.stack{display:flex;flex-direction:column;}
+.stack.g4{gap:var(--space-4)} .stack.g8{gap:var(--space-8)} .stack.g12{gap:var(--space-12)}
+.stack.g16{gap:var(--space-16)} .stack.g24{gap:var(--space-24)}
+.row{display:flex;align-items:center;gap:var(--space-12);}
+.row.between{justify-content:space-between;}
+.grow{flex:1;min-width:0;}
+.pin-bottom{margin-top:auto;padding-bottom:var(--space-32);}      /* clears home indicator */
+.scroll-y{overflow-y:auto;}
+
+/* ---- text styles ----------------------------------------------------------- */
+.t-h3{font:var(--type-heading-3);letter-spacing:var(--tracking-heading);margin:0;}
+.t-h3-semibold{font:var(--type-heading-3-semibold);letter-spacing:var(--tracking-heading);margin:0;}
+.t-h5{font:var(--type-heading-5);letter-spacing:var(--tracking-heading);margin:0;}
+.t-h5-semibold{font:var(--type-heading-5-semibold);letter-spacing:var(--tracking-heading);margin:0;}
+.t-body-lg{font:var(--type-body-large);margin:0;}
+.t-body{font:var(--type-body-medium);margin:0;}
+.t-body-semibold{font:var(--type-body-medium-semibold);margin:0;}
+.t-small{font:var(--type-body-small);margin:0;}
+.t-small-semibold{font:var(--type-body-small-semibold);margin:0;}
+.t-tiny{font:var(--type-body-tiny);margin:0;}
+.t-secondary{color:var(--color-text-secondary);}
+.t-tertiary{color:var(--color-text-tertiary);}
+.t-negative{color:var(--color-text-negative);}
+
+/* ---- icon -------------------------------------------------------------------*/
+.ico{display:inline-flex;align-items:center;justify-content:center;color:var(--color-icon-primary);flex:none;}
+
+/* ---- buttons (DS: Buttons) -------------------------------------------------- */
+.btn{appearance:none;border:var(--border-width-hairline) solid transparent;cursor:pointer;
+  font:var(--type-body-medium-semibold);letter-spacing:var(--tracking-body);
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--space-action-large-gap);
+  width:100%;height:56px;padding:var(--space-action-large-vertical) var(--space-24);border-radius:var(--radius-full);
+  transition:transform var(--dur-fast) var(--ease-ios),opacity var(--dur-fast),background var(--dur-fast);}
+.btn:active{transform:scale(.98);}
+.btn:focus-visible{outline:var(--border-width-medium) solid var(--color-focus-border);outline-offset:var(--focus-offset);}
+.btn[disabled]{opacity:.4;pointer-events:none;}
+.btn-primary{background:var(--color-action-primary-background);color:var(--color-action-primary-content);
+  border-color:var(--color-action-primary-border);}
+.btn-primary:active{background:linear-gradient(var(--color-action-primary-overlay-active),var(--color-action-primary-overlay-active)),var(--color-action-primary-background);}
+.btn-secondary{background:var(--color-action-secondary-background);color:var(--color-action-secondary-content);
+  border-color:var(--color-action-secondary-border);}
+.btn-tertiary{background:var(--color-action-tertiary-background);color:var(--color-action-tertiary-content);}
+.btn-plain{background:transparent;color:var(--color-action-quaternary-content);height:40px;}
+.btn-plain.action{color:var(--color-action-plain-content);}
+.btn-sm{height:40px;width:auto;padding:var(--space-action-small-vertical) var(--space-16);font:var(--type-body-small-semibold);}
+.btn-row{display:flex;gap:var(--space-12);}
+.btn-row .btn{flex:1;}
+/* DS GAP: on dark surfaces the Figma flow uses a near-white pill. Mapped to page-bg-secondary. */
+.btn-on-dark{background:var(--color-page-background-secondary);color:var(--color-text-primary);border-color:transparent;}
+.btn-plain.on-dark{color:var(--proto-surface-dark-content);}
+
+/* ---- toolbar / header (DS: Toolbar/Header) ---------------------------------- */
+.toolbar{position:relative;display:flex;align-items:center;justify-content:space-between;
+  height:44px;margin:0 calc(var(--gutter) * -1);padding:0 var(--gutter);}
+.toolbar .title{position:absolute;left:0;right:0;text-align:center;font:var(--type-body-medium);
+  pointer-events:none;}
+.icon-btn{width:44px;height:44px;border-radius:var(--radius-full);display:inline-flex;align-items:center;justify-content:center;
+  background:var(--color-action-secondary-background);border:var(--border-width-hairline) solid var(--color-action-secondary-border);
+  box-shadow:var(--shadow-level-2);cursor:pointer;color:var(--color-icon-primary);appearance:none;padding:0;z-index:1;}
+.icon-btn:active{transform:scale(.96);}
+.icon-btn.plain{background:transparent;border-color:transparent;box-shadow:none;}
+.pill-btn{height:36px;padding:0 var(--space-16);border-radius:var(--radius-full);
+  background:var(--color-action-secondary-background);border:var(--border-width-hairline) solid var(--color-action-secondary-border);
+  box-shadow:var(--shadow-level-2);font:var(--type-body-small);color:var(--color-text-primary);cursor:pointer;z-index:1;appearance:none;}
+
+/* ---- progress steps (DS GAP: no onboarding progress bar in DS) -------------- */
+.steps{display:flex;gap:var(--space-8);margin:var(--space-12) 0 var(--space-24);}
+.steps i{flex:1;height:3px;border-radius:var(--radius-full);background:var(--color-divider-primary);}
+.steps i.on{background:var(--color-action-primary-background);}
+
+/* ---- selection tile (DS: Selection Tile / Tiles) ---------------------------- */
+.tile{display:flex;align-items:center;gap:var(--space-12);min-height:64px;padding:var(--space-16);
+  border-radius:var(--radius-16);background:var(--color-container-background-primary);
+  border:var(--border-width-thin) solid var(--color-container-border-primary);
+  box-shadow:var(--shadow-level-2);font:var(--type-body-medium);color:var(--color-text-primary);
+  cursor:pointer;text-align:left;width:100%;appearance:none;
+  transition:border-color var(--dur-fast),box-shadow var(--dur-fast);}
+.tile.sel{border:var(--border-width-medium) solid var(--color-text-primary);padding:calc(var(--space-16) - 1px);}
+.tile.dim{color:var(--color-text-disabled);box-shadow:none;}
+.tile .grow{flex:1;}
+.tile:focus-visible{outline:var(--border-width-medium) solid var(--color-focus-border);outline-offset:var(--focus-offset);}
+
+/* ---- inline validation (DS feedback/negative tokens) ------------------------ */
+.msg-error{display:flex;align-items:flex-start;gap:var(--space-4);margin:0;color:var(--color-text-negative);font:var(--type-body-small);}
+.msg-error .ico,.msg-error svg{flex:none;margin-top:2px;}
+.tile.error{border-color:var(--color-feedback-negative-bold-background);}
+.chip.error{border-color:var(--color-feedback-negative-bold-background);}
+.count{margin-left:var(--space-4);color:var(--color-text-tertiary);}
+.t-negative .count{color:inherit;}
+
+/* ---- filter chip (DS: Filter Chip) ------------------------------------------ */
+.chips{display:flex;flex-wrap:wrap;gap:var(--space-8);}
+.chip{display:inline-flex;align-items:center;gap:var(--space-8);height:36px;padding:0 var(--space-12);
+  border-radius:var(--radius-full);background:var(--color-container-background-primary);
+  border:var(--border-width-thin) solid var(--proto-category-chip-border);
+  font:var(--type-body-small);color:var(--color-text-primary);cursor:pointer;appearance:none;}
+.chip.sel{background:var(--color-container-background-brand);border-color:var(--color-focus-border);}
+.chip.lg{height:40px;padding:0 var(--space-16);font:var(--type-body-medium);}
+
+/* ---- checkbox (DS: Checkbox) ------------------------------------------------ */
+.checkbox{width:24px;height:24px;border-radius:var(--radius-8);flex:none;display:inline-flex;align-items:center;justify-content:center;
+  border:var(--border-width-medium) solid var(--color-icon-secondary);background:var(--color-container-background-primary);color:var(--color-icon-inverse);
+  cursor:pointer;padding:0;appearance:none;}
+.checkbox.sm{width:20px;height:20px;border-width:var(--border-width-thin);border-radius:var(--radius-4);}
+.checkbox.on{background:var(--color-action-primary-background);border-color:var(--color-action-primary-background);}
+.checkbox svg{opacity:0;}
+.checkbox.on svg{opacity:1;}
+.check-line{display:flex;align-items:flex-start;gap:var(--space-8);cursor:pointer;}
+
+/* ---- switch (DS: Switch / Toggle) ------------------------------------------- */
+.switch{position:relative;width:52px;height:32px;border-radius:var(--radius-full);flex:none;cursor:pointer;
+  background:var(--color-text-disabled);border:0;padding:0;appearance:none;transition:background var(--dur-fast);}
+.switch::after{content:"";position:absolute;top:2px;left:2px;width:28px;height:28px;border-radius:var(--radius-full);
+  background:var(--color-container-background-primary);box-shadow:var(--shadow-level-2);transition:transform var(--dur-fast) var(--ease-ios);}
+.switch.on{background:var(--color-action-primary-background);}
+.switch.on::after{transform:translateX(20px);}
+
+/* ---- cards / rows / dividers ------------------------------------------------ */
+.card{background:var(--color-container-background-primary);border:var(--border-width-thin) solid var(--color-container-border-primary);
+  border-radius:var(--radius-24);overflow:hidden;}
+.card-sub{background:var(--color-container-background-tertiary);}
+.card .card-row{padding:var(--space-16);display:flex;align-items:center;gap:var(--space-12);}
+.card .card-row + .card-row{border-top:var(--border-width-thin) solid var(--color-divider-primary);}
+.card .inset-row{margin:0 var(--space-16);padding:var(--space-12) 0;display:flex;align-items:center;gap:var(--space-12);}
+.card .inset-row + .inset-row{border-top:var(--border-width-thin) solid var(--color-divider-primary);}
+.divider{height:var(--border-width-thin);background:var(--color-divider-primary);border:0;margin:0;}
+
+/* list item with leading checkbox + trailing amount (DS: Checklist / List Items) */
+.list-item{display:flex;align-items:center;gap:var(--space-12);padding:var(--space-12) 0;cursor:pointer;}
+.list-item + .list-item{border-top:var(--border-width-thin) solid var(--color-divider-primary);}
+.list-item .meta{flex:1;min-width:0;}
+.list-item .meta .sub{font:var(--type-body-small);color:var(--color-text-tertiary);}
+
+/* ---- inputs (DS: Inputs) ---------------------------------------------------- */
+.field{width:100%;height:56px;padding:0 var(--space-16);border-radius:var(--radius-12);
+  background:var(--color-container-background-primary);border:var(--border-width-thin) solid var(--color-container-border-secondary);
+  font:var(--type-body-medium);color:var(--color-text-primary);}
+.field::placeholder{color:var(--color-text-placeholder);}
+.field:focus{outline:var(--border-width-medium) solid var(--color-focus-border);outline-offset:var(--focus-offset);}
+.field-label{font:var(--type-body-small);color:var(--color-text-tertiary);margin:0 0 var(--space-4);}
+
+/* ---- segmented control (DS: Segmented Control) ------------------------------ */
+.segmented{display:flex;padding:var(--space-4);border-radius:var(--radius-full);background:var(--color-page-background-tertiary);}
+.segmented button{flex:1;height:40px;border:0;border-radius:var(--radius-full);background:transparent;cursor:pointer;
+  font:var(--type-body-medium);color:var(--color-text-primary);appearance:none;}
+.segmented button.on{background:var(--color-container-background-primary);box-shadow:var(--shadow-level-2);}
+
+/* ---- on-dark surface (value prop, summary) ---------------------------------- */
+.dark-screen{background:var(--proto-surface-dark);color:var(--proto-surface-dark-content);min-height:100%;}
+.dark-row{display:flex;align-items:center;justify-content:space-between;padding:var(--space-16);
+  border-radius:var(--radius-16);background:var(--proto-surface-dark-raised);font:var(--type-body-small);}
+.dark-row .v{font:var(--type-body-medium);}
+
+/* ---- spinner (transition screens) ------------------------------------------- */
+.spinner{width:28px;height:28px;border-radius:50%;border:var(--border-width-medium) solid var(--color-container-border-secondary);
+  border-top-color:var(--color-feedback-positive-bold-background);animation:spin 900ms linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.center-screen{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-12);}
+
+/* ---- bottom sheet ------------------------------------------------------------ */
+.sheet-scrim{position:absolute;inset:0;z-index:120;background:var(--color-page-background-overlay);
+  opacity:0;transition:opacity var(--dur) var(--ease-in-out);}
+.sheet-scrim.show{opacity:1;}
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:121;background:var(--color-container-background-primary);
+  border-radius:var(--radius-24) var(--radius-24) 0 0;padding:var(--space-16) var(--gutter) calc(var(--safe-bottom) + var(--space-12));
+  box-shadow:var(--shadow-level-2);transform:translateY(100%);transition:transform var(--dur-slow) var(--ease-ios);}
+.sheet.show{transform:translateY(0);}
+.sheet .grabber{width:38px;height:5px;border-radius:3px;background:var(--color-divider-secondary);margin:0 auto var(--space-16);}
+.sheet .opt{display:flex;align-items:center;justify-content:space-between;height:52px;border-top:var(--border-width-thin) solid var(--color-divider-primary);cursor:pointer;font:var(--type-body-medium);}
+.sheet .opt:first-of-type{border-top:0;}
+
+.kit-empty{padding:80px 24px;text-align:center;color:var(--color-text-tertiary);font:var(--type-body-medium);}

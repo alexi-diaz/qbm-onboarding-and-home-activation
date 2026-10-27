@@ -1,0 +1,239 @@
+/* =============================================================================
+   ONBOARDING SCREEN STYLES
+   Part 1 uses design-system tokens only.
+   Part 2 ("OUTSIDE THE DESIGN SYSTEM") styles Intuit identity, IDX-owned and
+   bank-owned screens that the QBM design system does not cover; hardcoded
+   colours are allowed ONLY in that section.
+   ============================================================================= */
+
+/* ---- dark screens: value prop / summaries ---------------------------------- */
+.pad-dark{padding:var(--safe-top) var(--space-16) 0;display:flex;flex-direction:column;}
+.pad-dark .pin-bottom{padding-bottom:var(--space-32);}
+.coins{width:43px;height:71px;margin-top:var(--space-24);}
+.coins svg{display:block;width:100%;height:100%;}
+
+.vp{position:relative;overflow:hidden;}
+.vp-art{position:absolute;inset:0;overflow:hidden;}
+.vp-copy{position:absolute;left:0;right:0;bottom:0;padding:0 var(--space-16) var(--space-24);display:flex;flex-direction:column;gap:var(--space-16);z-index:2;}
+.vp-copy .btn{width:calc(100% - var(--space-16));margin:0 auto;}
+.vp-copy .t-h3{font:var(--type-heading-3);margin-bottom:var(--space-8);}
+/* animated artwork layers (positions set in motion.js; keyframes from Figma) */
+.mo{position:absolute;will-change:transform,filter;}
+.mo img,.mo svg{display:block;width:100%;height:100%;}
+.l-invoices{background:var(--color-container-background-primary);border-radius:var(--radius-24);
+  box-shadow:inset 0 0 0 var(--border-width-hairline) var(--color-divider-secondary);color:var(--color-text-primary);}
+.l-invoices .iv-t{position:absolute;left:16.5px;top:16.5px;margin:0;font:var(--type-body-medium);}
+.l-invoices .iv-n{position:absolute;top:53.5px;width:93.5px;}
+.l-invoices .iv-n.l{left:16.5px;text-align:left;} .l-invoices .iv-n.r{left:110px;text-align:right;}
+.l-invoices .iv-n b{display:block;font:var(--type-body-medium-semibold);white-space:nowrap;}
+.l-invoices .iv-n small{display:block;font:var(--font-weight-regular) 8px/10px var(--font-name-body);margin-top:2px;}
+.l-invoices .ch{display:inline-block;}
+.l-invoices .iv-bar{position:absolute;top:100.5px;height:17px;border-radius:var(--radius-full);}
+.l-invoices .iv-bar.a{left:16.5px;width:74px;background:var(--color-feedback-positive-subtle-background);}
+.l-invoices .iv-bar.b{left:93.5px;width:110px;background:linear-gradient(90deg,#c6ff65 36%,#8ce4ff 100%);} /* Figma gradient; no DS tokens for illustration colors */
+
+/* ---- bank intro (transition: connect your bank) ---------------------------- */
+.bank-intro{padding-bottom:var(--space-16);}
+.bank-icons{display:flex;margin-top:var(--space-24);}
+.bank-icons img{width:48px;height:48px;border-radius:var(--radius-12);display:block;margin-left:calc(var(--space-8) * -1);
+  box-shadow:0 0 0 var(--border-width-hairline) rgba(255,255,255,.35);}
+.bank-icons img:first-child{margin-left:0;}
+.bi-title{margin:var(--space-16) 0 0;}
+.bi-body{margin:var(--space-8) 0 0;color:var(--proto-surface-dark-content);}
+.bi-actions{display:flex;flex-direction:column;gap:10px;}
+.bi-actions .btn-plain{height:24px;}
+
+/* ---- GTKM / bank provider -------------------------------------------------- */
+.bank-search{position:absolute;left:var(--space-16);right:var(--space-16);bottom:var(--space-32);height:48px;border-radius:var(--radius-full);
+  display:flex;align-items:center;gap:var(--space-8);padding:0 var(--space-16);background:var(--color-container-background-primary);
+  box-shadow:var(--shadow-level-2);border:var(--border-width-hairline) solid var(--color-container-border-secondary);color:var(--color-text-placeholder);font:var(--type-body-medium);}
+.wf-mini{display:block;width:40px;height:40px;border-radius:var(--radius-8);margin-top:var(--space-16);}
+
+/* ---- bottom CTA with fade (select list) ------------------------------------ */
+.bottom-cta{position:sticky;bottom:0;z-index:5;margin:auto calc(var(--gutter) * -1) 0;padding:var(--space-24) var(--gutter) var(--space-32);
+  background:linear-gradient(to top,var(--color-page-background-primary) 60%,transparent);}
+
+/* ---- review card ------------------------------------------------------------- */
+.deck{position:relative;margin-top:calc(var(--space-16) + var(--space-24));height:517px;flex:none;}
+.deck .peek{position:absolute;left:var(--space-24);right:var(--space-24);top:-14px;bottom:-14px;border-radius:var(--radius-32);
+  background:var(--color-container-background-primary);border:var(--border-width-thin) solid var(--color-container-border-primary);}
+.txcard{position:relative;height:100%;border-radius:var(--radius-32);background:var(--color-page-background-secondary);
+  border:var(--border-width-thin) solid var(--color-container-border-primary);padding:var(--space-24) var(--space-16) var(--space-16);
+  display:flex;flex-direction:column;align-items:center;text-align:center;}
+.txmid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-8);}
+.amt{font:var(--type-heading-3);letter-spacing:var(--tracking-heading);}
+.mlogo{width:36px;height:36px;border-radius:var(--radius-8);color:var(--color-text-inverse);font:var(--type-body-small-semibold);display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-8);}
+.catpill{display:inline-flex;align-items:center;gap:var(--space-8);height:40px;padding:0 var(--space-12);margin-top:var(--space-8);
+  border-radius:var(--radius-full);border:var(--border-width-thin) solid var(--proto-category-chip-border);background:var(--color-container-background-primary);
+  font:var(--type-body-medium);color:var(--color-text-primary);cursor:pointer;}
+/* placeholder merchant logos (Figma uses real brand marks) — categorical tones from feedback palette */
+.mlogo.t1{background:var(--color-feedback-warning-bold-background);color:var(--color-feedback-warning-bold-content);}
+.mlogo.t2{background:var(--color-feedback-positive-bold-background);}
+.mlogo.t3{background:var(--color-feedback-info-bold-background);}
+.mlogo.t4{background:var(--color-action-primary-background);}
+.mlogo.t5{background:var(--color-feedback-info-subtle-content);}
+.mlogo.t6{background:var(--color-feedback-negative-bold-background);}
+.mlogo.t7{background:var(--color-feedback-positive-subtle-content);}
+.mlogo.t8{background:var(--color-text-primary);}
+.mlogo.t9{background:var(--color-icon-secondary);}
+
+/* ---- edit mode ---------------------------------------------------------------- */
+.edit-screen{min-height:100%;display:flex;flex-direction:column;background:var(--color-page-background-secondary);}
+.edit-top{padding:var(--safe-top) var(--space-16) var(--space-16);}
+.edit-hd{text-align:center;margin-top:calc(var(--space-12) * -1);}
+.edit-hd .amt{margin-top:var(--space-4);}
+.edit-body{flex:1;background:var(--color-container-background-primary);border-radius:var(--radius-32) var(--radius-32) 0 0;
+  padding:var(--space-16);padding-bottom:var(--space-32);display:flex;flex-direction:column;}
+
+/* ---- home (static end screen) — Figma 432:46505 ------------------------------ */
+.home{position:relative;min-height:100%;background:var(--color-page-background-secondary);padding-bottom:var(--space-24);}
+.home-hd{display:flex;align-items:center;justify-content:space-between;padding:calc(var(--safe-top) + var(--space-8)) var(--space-16) var(--space-8);}
+.home-co{display:flex;align-items:center;gap:var(--space-4);}
+.home-actions{display:flex;gap:var(--space-16);padding:var(--space-12) var(--space-16);border-radius:var(--radius-full);background:var(--color-container-background-primary);box-shadow:var(--shadow-level-2);}
+.home-body{padding:var(--space-8) var(--space-16) 0;display:flex;flex-direction:column;gap:var(--space-12);}
+.sec-hd{margin-top:var(--space-8);}
+.steps-row{display:flex;gap:var(--space-8);overflow-x:auto;margin:0 calc(var(--space-16) * -1);padding:0 var(--space-16) var(--space-4);scrollbar-width:none;}
+.steps-row::-webkit-scrollbar{display:none}
+.stepcard{flex:none;display:flex;align-items:center;gap:var(--space-8);min-height:57px;padding:0 var(--space-16);border-radius:var(--radius-16);
+  background:var(--color-container-background-primary);border:var(--border-width-thin) solid var(--color-container-border-primary);font:var(--type-body-medium);box-shadow:var(--shadow-level-2);}
+.stepcard .num{width:24px;height:24px;border-radius:50%;background:var(--color-action-primary-background);color:var(--color-action-primary-content);display:flex;align-items:center;justify-content:center;font:var(--type-body-small-semibold);}
+.hcard{background:var(--color-container-background-primary);border:var(--border-width-thin) solid var(--color-container-border-primary);border-radius:var(--radius-24);padding:var(--space-16);}
+.hc-title{margin:var(--space-4) 0 var(--space-16);}
+.amt2{font:var(--type-heading-5);margin:0 0 var(--space-8);color:var(--color-text-secondary);}
+.pill-warn{display:block;color:var(--color-feedback-warning-subtle-content);font:var(--type-body-small);}
+.bar{display:flex;gap:var(--space-2);height:20px;margin:var(--space-16) 0;}
+.bar i{border-radius:var(--radius-full);display:block;}
+.legend{display:flex;align-items:flex-start;gap:var(--space-12);padding:var(--space-12) 0;}
+.legend + .legend{border-top:var(--border-width-thin) solid var(--color-divider-primary);}
+.legend .sq{width:8px;height:8px;border-radius:2px;flex:none;margin-top:6px;}
+.dots{display:flex;justify-content:center;align-items:center;gap:var(--space-2);margin-top:var(--space-8);}
+.dots i{width:5px;height:5px;border-radius:50%;background:var(--color-container-border-secondary);display:block;}
+.dots i.on{width:12px;border-radius:3px;background:var(--color-text-primary);}
+.task{display:flex;align-items:center;gap:var(--space-12);padding:var(--space-12) 0 0;margin-top:var(--space-16);}
+.task p{margin:0;}
+.task .mlogo{margin:0;flex:none;}
+.ico.att{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--radius-8);background:var(--color-feedback-positive-bold-background);color:var(--color-feedback-positive-bold-content);}
+.home-float{position:sticky;bottom:0;height:0;z-index:4;}
+.home .fab{position:absolute;right:var(--space-16);bottom:112px;width:62px;height:62px;border-radius:50%;border:0;background:var(--color-action-primary-background);color:var(--color-action-primary-content);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-level-2);cursor:pointer;}
+.botnav{position:absolute;left:var(--space-16);right:var(--space-16);bottom:var(--space-24);height:62px;border-radius:var(--radius-full);
+  background:var(--color-container-background-primary);box-shadow:var(--shadow-level-2);border:var(--border-width-thin) solid var(--color-container-border-primary);display:flex;align-items:center;justify-content:space-around;padding:0 var(--space-4);}
+.botnav span{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-2);height:54px;border-radius:var(--radius-full);color:var(--color-text-primary);}
+.botnav span small{font:var(--type-body-tiny);}
+.botnav span.on{background:var(--color-page-background-tertiary);color:var(--proto-home-header);}
+.restart-link{display:block;margin:var(--space-16) auto 0;border:0;background:transparent;color:var(--color-text-action);font:var(--type-body-small);cursor:pointer;padding:var(--space-8);}
+
+/* ---- dev / review panel (?dev=1) — review-only, not product UI ---------------- */
+.devpanel{width:260px;max-height:calc(var(--screen-h) + var(--bezel) * 2);overflow-y:auto;background:var(--color-container-background-primary);
+  border:var(--border-width-thin) solid var(--color-container-border-primary);border-radius:var(--radius-16);padding:var(--space-16);font:var(--type-body-small);}
+.devpanel h2{font:var(--type-body-medium-semibold);margin:0 0 var(--space-4);}
+.devpanel h3{font:var(--type-body-tiny-semibold);text-transform:uppercase;color:var(--color-text-tertiary);margin:var(--space-12) 0 var(--space-4);}
+.devpanel .hint{margin:0 0 var(--space-12);color:var(--color-text-tertiary);}
+.devpanel .seg{display:flex;gap:var(--space-8);}
+.devpanel button{font:var(--type-body-small);cursor:pointer;border-radius:var(--radius-8);border:var(--border-width-thin) solid var(--color-container-border-secondary);background:var(--color-container-background-primary);padding:var(--space-8);text-align:left;width:100%;margin-top:var(--space-4);color:var(--color-text-primary);}
+.devpanel .seg button{text-align:center;margin:0;}
+.devpanel button.on{background:var(--color-container-background-brand);border-color:var(--color-focus-border);}
+.devpanel small{color:var(--color-text-tertiary);}
+.devpanel .restart{margin:var(--space-12) 0;background:var(--color-action-tertiary-background);}
+@media (max-width:760px){.devpanel{display:none;}}
+
+/* =============================================================================
+   PART 2 — OUTSIDE THE DESIGN SYSTEM (identity / IDX / bank-owned UI)
+   ============================================================================= */
+/* bank logos in provider list */
+.bank-logo{width:50px;height:50px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font:600 13px/1 var(--font-name-body);flex:none;}
+.bank-logo.img{object-fit:cover;display:block;background:transparent;} .bank-logo.img.lg{width:48px;height:48px;}
+.bank-logo.wf{background:#d71e28;} .bank-logo.chase{background:#117aca;} .bank-logo.c1{background:#0a3d5c;font-size:9px;}
+.bank-logo.boa{background:#fff;color:#e31837;border:1px solid #e7edf3;} .bank-logo.citi{background:#0a6dc2;} .bank-logo.td{background:#53b330;}
+
+/* Intuit identity sign-up (native iOS) */
+.idv{align-items:stretch;background:#fff;color:#393a3d;}
+.idv-logo{text-align:center;color:#0077c5;font:600 22px/1 var(--font-name-body);letter-spacing:.14em;margin-top:var(--space-24);}
+.idv-title{text-align:center;font:600 20px/1.2 var(--font-name-body);margin:var(--space-24) 0 var(--space-16);color:#393a3d;}
+.idv-field{position:relative;border-bottom:1px solid #bbbec3;padding:var(--space-8) 0;margin-top:var(--space-16);display:flex;align-items:center;gap:var(--space-8);font:400 16px/1.4 var(--font-name-body);}
+.idv-field.focus{border-bottom:2px solid #0077c5;}
+.idv-field label{position:absolute;top:-14px;font-size:14px;color:#6b6c72;}
+.idv-field input{border:0;outline:0;flex:1;font:inherit;background:transparent;height:32px;}
+.idv-field .idv-eye,.idv-field .idv-caret{margin-left:auto;color:#0077c5;display:flex;}
+.idv-field.sel .idv-caret{color:#393a3d;}
+.idv-small{font-size:14px;color:#6b6c72;margin:var(--space-8) 0 var(--space-16);}
+.idv-cta{height:48px;border:0;border-radius:4px;background:#0077c5;color:#fff;font:600 20px/1 var(--font-name-body);display:flex;align-items:center;justify-content:center;gap:var(--space-12);cursor:pointer;}
+.idv-legal{font-size:12px;color:#6b6c72;text-align:center;margin:var(--space-16) 0;line-height:1.5;}
+.idv-legal u,.idv-signin u{color:#0077c5;}
+.idv-signin{text-align:center;font-size:14px;margin:0;}
+
+/* IDX bank-link screens */
+.idx-pair{display:flex;align-items:center;gap:var(--space-12);margin:var(--space-24) 0 var(--space-16);}
+.idx-pair.sm{justify-content:center;} .idx-pair .dots{letter-spacing:2px;color:#6b6c72;font-size:12px;}
+.idx-badge{width:48px;height:48px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font:700 9px/1 var(--font-name-body);}
+.idx-badge.intuit{background:#236cff;font-size:10px;letter-spacing:.08em;} .idx-badge.intuit.round{background:#5b3bd1;font-size:16px;} .idx-badge.wf{background:#d71e28;font-size:13px;}
+.idx-arrows{color:#4a4d54;font-size:26px;line-height:1;}
+/* IDX theme (first two bank-connect screens): Avenir-style type, dark-green actions, plain icons */
+.idx-white{background:#fff;--idx-font:'Avenir Next',Avenir,'Nunito Sans','Segoe UI',var(--font-name-body),sans-serif;--idx-ink:#2c2e33;--idx-sub:#505560;--idx-green:#003d2e;font-family:var(--idx-font);color:var(--idx-ink);}
+.idx-top{display:flex;justify-content:space-between;align-items:center;margin-top:var(--space-8);padding:var(--space-8) 0;}
+.idx-ic{border:0;background:transparent;color:var(--idx-ink);padding:var(--space-4);display:flex;cursor:pointer;}
+.idx-h1{font:400 26px/1.2 var(--idx-font);color:var(--idx-ink);margin:var(--space-16) 0 var(--space-8);letter-spacing:0;}
+.idx-sub{font:400 16px/1.45 var(--idx-font);color:var(--idx-sub);margin:0 0 var(--space-24);}
+.idx-label{font:400 15px/1.2 var(--idx-font);color:var(--idx-ink);margin:0 0 var(--space-12);}
+.idx-list{display:flex;flex-direction:column;gap:var(--space-12);padding:var(--space-4) var(--space-2) 120px;}
+.idx-card{display:flex;align-items:center;gap:var(--space-16);height:80px;padding:0 var(--space-16);border:0;border-radius:var(--radius-12);background:#fff;
+  box-shadow:0 2px 10px rgba(5,12,19,.14),0 1px 2px rgba(5,12,19,.08);font:400 16px/1 var(--idx-font);color:var(--idx-ink);text-align:left;cursor:pointer;flex:none;}
+.idx-card.dim{opacity:.55;}
+.idx-search{position:absolute;left:var(--space-16);right:var(--space-16);bottom:var(--space-32);height:44px;border-radius:var(--radius-full);display:flex;align-items:center;gap:var(--space-8);padding:0 var(--space-16);
+  background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 2px 14px rgba(5,12,19,.16);color:#8a8f98;font:400 17px/1 var(--idx-font);}
+.idx-title{font:400 26px/1.2 var(--idx-font);margin:0 0 var(--space-8);color:var(--idx-ink);}
+.idx-btn{display:block;width:100%;height:48px;border-radius:4px;font:700 17px/1 var(--idx-font);margin-bottom:var(--space-12);cursor:pointer;}
+.idx-btn.solid{background:var(--idx-green);border:2px solid var(--idx-green);color:#fff;} .idx-btn.outline{background:#fff;border:2px solid var(--idx-green);color:var(--idx-green);}
+
+/* Wells Fargo web view mock */
+.wf-page{min-height:100%;background:#fff;color:#1a1a1a;}
+.wf-bar{height:calc(var(--safe-top) + 44px);padding:var(--safe-top) var(--space-12) 0;background:#d71e28;color:#fff;display:flex;align-items:center;justify-content:space-between;font:400 13px/1 var(--font-name-body);}
+.wf-x{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;}
+.wf-logo{background:#d71e28;color:#ffcd41;text-align:center;font:700 15px/1 'Times New Roman',serif;padding:var(--space-8) 0 var(--space-12);border-bottom:3px solid #ffcd41;}
+.wf-body{padding:var(--space-16);}
+.wf-body h2{font:400 22px/1.2 Georgia,serif;text-align:center;margin:var(--space-24) 0;} .wf-body h2.big{font-size:26px;}
+.wf-body.center{text-align:center;} .wf-body .left{text-align:left;}
+.wf-input{border:1px solid #bbb;border-radius:6px;height:48px;padding:0 var(--space-12);display:flex;align-items:center;justify-content:space-between;color:#777;margin-bottom:var(--space-12);font-size:15px;}
+.wf-input b{font-size:12px;color:#3c3c9e;}
+.wf-chk{display:flex;align-items:center;gap:var(--space-8);font-size:13px;margin:var(--space-8) 0 var(--space-16);} .wf-chk i{width:16px;height:16px;border:1px solid #888;border-radius:2px;}
+.wf-signon{width:100%;height:44px;border:0;border-radius:22px;background:#d71e28;color:#fff;font:600 15px/1 var(--font-name-body);cursor:pointer;}
+.wf-or{text-align:center;font-size:12px;color:#666;margin:var(--space-8) 0;}
+.wf-passkey{display:block;margin:0 auto;height:40px;padding:0 var(--space-24);border-radius:20px;border:1px solid #333;background:#fff;font-size:14px;}
+.wf-fine{font-size:12px;color:#555;line-height:1.45;margin:var(--space-12) 0;}
+.wf-list{font-size:13px;padding-left:var(--space-16);line-height:1.9;margin:var(--space-8) 0 var(--space-24);}
+.wf-body h3{font:600 17px/1.3 var(--font-name-body);margin:var(--space-24) 0 0;}
+.wf-next{display:block;margin:0 auto var(--space-12);width:160px;height:44px;border-radius:22px;border:0;background:#2b2b2b;color:#fff;font:600 15px/1 var(--font-name-body);cursor:pointer;}
+.wf-cancel{display:block;margin:0 auto;width:160px;height:44px;border-radius:22px;border:1px solid #2b2b2b;background:#fff;color:#2b2b2b;font:600 15px/1 var(--font-name-body);cursor:pointer;}
+
+/* ---- swipe confirmation (review card) ---- */
+.deck{z-index:0}
+.swipe-check{position:absolute;left:50%;top:50%;width:96px;height:96px;border-radius:var(--radius-full);
+  background:var(--color-feedback-positive-bold-background);color:var(--color-feedback-positive-bold-content);
+  display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;
+  box-shadow:0 8px 24px rgba(1,132,54,.35);}
+.swipe-check svg{stroke-width:2.4}
+
+/* ---- text shimmer (loading screens) ---- */
+.shimmer{color:transparent;background-image:linear-gradient(100deg,var(--color-text-tertiary) 35%,var(--color-text-primary) 50%,var(--color-text-tertiary) 65%);
+  background-size:250% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;animation:shimmer 1.8s linear infinite;}
+@keyframes shimmer{to{background-position:-100% 0}}
+@media (prefers-reduced-motion:reduce){.shimmer{animation:none;color:var(--color-text-primary);background:none}}
+.t-body-medium{font:var(--type-body-medium);margin:0;}
+
+/* ---- estimated expense breakdown (dark summary) ---- */
+.sum-title{margin:var(--space-32) 0 0;}
+.sum-body{margin:var(--space-8) 0 0;color:var(--proto-surface-dark-content);}
+.est-card{margin-top:var(--space-32);padding:var(--space-24);border-radius:var(--radius-32);color:var(--proto-surface-dark-content);
+  background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.05));border:var(--border-width-thin) solid rgba(255,255,255,.10);}
+.est-amt{font:var(--type-heading-5);margin:var(--space-16) 0;}
+.est-bar{display:flex;gap:var(--space-2);height:20px;margin-bottom:var(--space-16);}
+.est-bar i{display:block;border-radius:var(--radius-full);}
+.est-row{display:flex;align-items:center;gap:var(--space-8);padding:var(--space-12) 0;font:var(--type-body-small);}
+.est-row + .est-row{border-top:var(--border-width-thin) solid rgba(255,255,255,.14);}
+.est-row .sq{width:8px;height:8px;border-radius:2px;flex:none;}
+
+/* ---- summary v2 (Categorize October transactions\u2026) ---- */
+.sum-x{width:44px;height:44px;border-radius:var(--radius-full);border:0;background:rgba(255,255,255,.14);color:var(--proto-surface-dark-content);display:flex;align-items:center;justify-content:center;margin-top:var(--space-8);cursor:pointer;}
+.sum-meta{margin-top:var(--space-24);color:var(--proto-surface-dark-content);}
+.sum-meta .t-small{color:var(--proto-surface-dark-content);}
+.sum-time{font:var(--type-body-medium);opacity:.9;}
+.est-card{margin-top:var(--space-16);}
